@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
-var request = require("sync-request");
+// var request = require("sync-request");
 var allData = require("../requestsTMDB");
-
+var request = require("then-request");
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/", async function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 // =============/load-movies-banner route banner==================================
