@@ -3,6 +3,10 @@ var router = express.Router();
 // var request = require("sync-request");
 var allData = require("../requestsTMDB");
 var request = require("then-request");
+
+console.log(
+  "=====================backend is already============================"
+);
 /* GET home page. */
 router.get("/", async function (req, res, next) {
   res.render("index", { title: "Express" });
