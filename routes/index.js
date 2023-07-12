@@ -8,11 +8,11 @@ console.log(
   "=====================backend is already============================"
 );
 /* GET home page. */
-router.get("/", async function (req, res, next) {
+router.get("/api", async function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 // =============/load-movies-banner route banner==================================
-router.get("/load-movies-banner", async function (req, res, next) {
+router.get("/api/load-movies-banner", async function (req, res, next) {
   let errorVideo = false;
   let urlYoutube;
   var result = await request(
@@ -56,7 +56,7 @@ router.get("/load-movies-banner", async function (req, res, next) {
   res.json({ backendReturn: randomMovie, errorVideo, urlYoutube });
 });
 //===================route /load-movies-pictures row pictures=======================
-router.get("/load-movies-pictures", async function (req, res, next) {
+router.get("/api/load-movies-pictures", async function (req, res, next) {
   let address;
   if (req.query.url == "fetchTrending") {
     address = allData.requests.fetchTrending;
@@ -99,7 +99,7 @@ router.get("/load-movies-pictures", async function (req, res, next) {
   res.json({ backendReturn: jsonResult.results });
 });
 //====================route /video search url video========================================================
-router.get("/video", async function (req, res, next) {
+router.get("/api/video", async function (req, res, next) {
   let errorVideo = false;
   let urlYoutube;
   let requestMovie = `https://api.themoviedb.org/3/movie/${req.query.id}/videos?api_key=${allData.keyAPIMovie}&language=en-us`;
